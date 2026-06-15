@@ -2,20 +2,27 @@ import os
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-from crewai import Agent, Task, Crew
+from crewai import Agent, Task, Crew, LLM
 from crewai.tools import tool
 from googleapiclient.discovery import build
 
-# Desativa a telemetria que está derrubando a conexão no GitHub
+# =====================================================================
+# TRAVAS DE SEGURANÇA E TELEMETRIA (OBRIGATÓRIO PARA GITHUB ACTIONS)
+# =====================================================================
 os.environ["CREWAI_TELEMETRY_OPT_OUT"] = "true"
 os.environ["OTEL_SDK_DISABLED"] = "true"
 
 # =====================================================================
 # 1. CONFIGURAÇÕES E CHAVES DE API (SEGURAS VIA REPOSITORY SECRETS)
 # =====================================================================
-# O GitHub Actions vai preencher estas variáveis automaticamente em segundo plano
-os.environ["OPENAI_MODEL_NAME"] = 'gpt-4o-mini'
-os.environ["OPENAI_API_KEY"] = os.environ.get("OPENAI_API_KEY")
+# Puxa a API Key diretamente do ambiente seguro do GitHub Actions
+api_key_env = os.environ.get("OPENAI_API_KEY")
+
+# Instanciação EXPLÍCITA do modelo para evitar o bloqueio de conexão automática do CrewAI
+definitive_llm = LLM(
+    model="gpt-4o-mini",
+    api_key=api_key_env
+)
 
 GOOGLE_API_KEY = "AIzaSyArriA38ty4TpTZBXpR6k7uhj8ZKLIjpzI"
 GOOGLE_CSE_ID = "e0c02c422fb02448d"
@@ -45,7 +52,6 @@ def send_email_tool(conteudo_email: str) -> str:
     """Útil para enviar o texto final gerado e revisado diretamente para o e-mail do utilizador."""
     try:
         remetente = "comercial01.c1ia@gmail.com"
-        # O GitHub vai injetar a senha de app de forma segura aqui
         senha = os.environ.get("GMAIL_APP_PASSWORD")
         destinatario = "viniciusrsfreitas@gmail.com"
 
@@ -68,7 +74,7 @@ def send_email_tool(conteudo_email: str) -> str:
         return f"Erro ao enviar o e-mail: {str(e)}"
 
 # =====================================================================
-# 3. DEFINIÇÃO DOS AGENTES
+# 3. DEFINIÇÃO DOS AGENTES (COM LLM INJETADO EXPLICITAMENTE)
 # =====================================================================
 trend_analyzer = Agent(
     role="Analista de Tendências e Mercado",
@@ -83,6 +89,7 @@ Missão: Implantar Inteligência Artificial para resolver as dores reais que tra
 Visão: Ser a referência em transformar tecnologias complexas em ferramentas simples de produtividade. Queremos que cada cliente nosso utilize a IA não como uma tendência, mas como uma vantagem competitiva real e indispensável para a escala do negócio.""",
     tools=[google_search_tool],
     allow_delegation=False,
+    llm=definitive_llm,
     verbose=True
 )
 
@@ -98,6 +105,7 @@ planner = Agent(
               "Visão: Ser a referência em transformar tecnologias complexas em ferramentas simples de produtividade. Queremos que cada cliente nosso utilize a IA não como uma tendência, mas como uma vantagem competitiva real e indispensável para a escala do negócio."
               "Valores: Foco na Dor Real — resolvemos gargalos práticos, não vendemos tendências. Libertação Operacional — IA para tirar a equipe do braçal e focar no estratégico. Vantagem Competitiva — tecnologia que vira lucro e escala para o cliente. Segurança Absoluta — inovação com rigor total à LGPD e proteção de dados.",
     allow_delegation=False,
+    llm=definitive_llm,
     verbose=True
 )
 
@@ -110,17 +118,19 @@ writer = Agent(
               "Você também fornece percepções objetivas e imparciais e as fundamenta com informações fornecidas pelo Planejador de Conteúdo. "
               "Você reconhece no seu artigo opinativo quando suas declarações são opiniões em oposição a declarações objetivas.",
     allow_delegation=False,
+    llm=definitive_llm,
     verbose=True
 )
 
 editor = Agent(
     role="Editor",
-    goal="Editar um post de blog para alinhar com o estilo de escrita da organização.",
+    goal="Editar um post de blog para alinhar com o estilo de escrita da organization.",
     backstory="Você é um editor que recebe um post para a página da C1IA no Linkedin do Redator de Conteúdo. "
               "Seu objetivo é revisar o post do Linkedin para garantir que ele siga as melhores práticas jornalísticas, "
               "ofereça pontos de vista equilibrados ao apresentar opiniões ou afirmações, "
               "e também evite tópicos ou opiniões altamente controversos sempre que possível.",
     allow_delegation=False,
+    llm=definitive_llm,
     verbose=True
 )
 
@@ -130,6 +140,7 @@ email_notifier = Agent(
     backstory="Você é um assistant focado em integração de sistemas e automação de fluxos. Sua única e crucial missão é garantir que o trabalho da equipe de conteúdo chegue de forma rápida e segura à caixa de entrada do utilizador.",
     tools=[send_email_tool],
     allow_delegation=False,
+    llm=definitive_llm,
     verbose=True
 )
 
@@ -160,7 +171,7 @@ plan = Task(
 
 write = Task(
     description=(
-        "1. Usar o plano de conteúdo para criar um post de blog envolvente sobre {topic}.\n"
+        "1. Usar o plano de conteúdo para create um post de blog envolvendo sobre {topic}.\n"
         "2. Incorporar palavras-chave de SEO de forma natural.\n"
         "3. As seções/subtítulos devem estar nomeadas adequadamente de forma atraente.\n"
         "4. Garantir que o post esteja estruturado com uma introdução envolvendo, corpo com boas ideias e uma conclusão resumida.\n"
@@ -187,7 +198,7 @@ send_email_task = Task(
 )
 
 # =====================================================================
-# 5. EXECUÇÃO SÍNCRONA (REQUISITO PARA O TERMINAL DO GITHUB ACTIONS)
+# 5. EXECUÇÃO SÍNCRONA
 # =====================================================================
 if __name__ == "__main__":
     print("🔍 Passo 1: Analisando tendências no Google...")
@@ -197,7 +208,6 @@ if __name__ == "__main__":
         verbose=True
     )
     
-    # Sem await e sem async. Execução direta via terminal.
     topic_result = trend_crew.kickoff()
     dynamic_topic = str(topic_result.raw).strip()
     
