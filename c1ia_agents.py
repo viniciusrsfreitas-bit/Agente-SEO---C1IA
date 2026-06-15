@@ -7,18 +7,17 @@ from crewai.tools import tool
 from googleapiclient.discovery import build
 
 # =====================================================================
-# TRAVAS DE SEGURANÇA E TELEMETRIA (OBRIGATÓRIO PARA GITHUB ACTIONS)
+# TRAVAS DE SEGURANÇA E TELEMETRIA
 # =====================================================================
 os.environ["CREWAI_TELEMETRY_OPT_OUT"] = "true"
 os.environ["OTEL_SDK_DISABLED"] = "true"
 
 # =====================================================================
-# 1. CONFIGURAÇÕES E CHAVES DE API (SEGURAS VIA REPOSITORY SECRETS)
+# 1. CONFIGURAÇÕES E CHAVES DE API
 # =====================================================================
-# Puxa a API Key diretamente do ambiente seguro do GitHub Actions
-api_key_env = os.environ.get("OPENAI_API_KEY")
+# Lendo a variável customizada para ignorar o bug do cabeçalho do GitHub
+api_key_env = os.environ.get("C1IA_OPENAI_KEY")
 
-# Instanciação EXPLÍCITA do modelo para evitar o bloqueio de conexão automática do CrewAI
 definitive_llm = LLM(
     model="gpt-4o-mini",
     api_key=api_key_env
@@ -26,7 +25,6 @@ definitive_llm = LLM(
 
 GOOGLE_API_KEY = "AIzaSyArriA38ty4TpTZBXpR6k7uhj8ZKLIjpzI"
 GOOGLE_CSE_ID = "e0c02c422fb02448d"
-
 # =====================================================================
 # 2. FERRAMENTAS (TOOLS)
 # =====================================================================
