@@ -6,6 +6,10 @@ from crewai import Agent, Task, Crew
 from crewai.tools import tool
 from googleapiclient.discovery import build
 
+# Desativa a telemetria que está derrubando a conexão no GitHub
+os.environ["CREWAI_TELEMETRY_OPT_OUT"] = "true"
+os.environ["OTEL_SDK_DISABLED"] = "true"
+
 # =====================================================================
 # 1. CONFIGURAÇÕES E CHAVES DE API (SEGURAS VIA REPOSITORY SECRETS)
 # =====================================================================
