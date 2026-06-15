@@ -10,7 +10,7 @@ from googleapiclient.discovery import build
 # 1. CONFIGURAÇÕES E CHAVES DE API (SEGURAS VIA REPOSITORY SECRETS)
 # =====================================================================
 # O GitHub Actions vai preencher estas variáveis automaticamente em segundo plano
-os.environ["OPENAI_MODEL_NAME"] = 'gpt-3.5-turbo'
+os.environ["OPENAI_MODEL_NAME"] = 'gpt-4o-mini'
 os.environ["OPENAI_API_KEY"] = os.environ.get("OPENAI_API_KEY")
 
 GOOGLE_API_KEY = "AIzaSyArriA38ty4TpTZBXpR6k7uhj8ZKLIjpzI"
