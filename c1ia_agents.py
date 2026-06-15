@@ -7,7 +7,7 @@ from crewai.tools import tool
 from googleapiclient.discovery import build
 
 # =====================================================================
-# TRAVAS DE SEGURANÇA E TELEMETRIA
+# TRAVAS DE SEGURANÇA E TELEMETRIA (OBRIGATÓRIO PARA GITHUB ACTIONS)
 # =====================================================================
 os.environ["CREWAI_TELEMETRY_OPT_OUT"] = "true"
 os.environ["OTEL_SDK_DISABLED"] = "true"
@@ -15,8 +15,11 @@ os.environ["OTEL_SDK_DISABLED"] = "true"
 # =====================================================================
 # 1. CONFIGURAÇÕES E CHAVES DE API
 # =====================================================================
-# Lendo a variável customizada para ignorar o bug do cabeçalho do GitHub
-api_key_env = os.environ.get("C1IA_OPENAI_KEY")
+# Tenta ler o segredo de qualquer uma das duas portas injetadas pelo GitHub
+api_key_env = os.environ.get("C1IA_OPENAI_KEY") or os.environ.get("OPENAI_API_KEY")
+
+if not api_key_env:
+    raise ValueError("ERRO CRÍTICO: A chave OPENAI_API_KEY não foi encontrada nas variáveis de ambiente do GitHub!")
 
 definitive_llm = LLM(
     model="gpt-4o-mini",
