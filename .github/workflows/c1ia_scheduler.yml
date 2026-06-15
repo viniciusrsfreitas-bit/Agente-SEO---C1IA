@@ -7,18 +7,22 @@ on:
   # Permite o disparo manual direto pelo botão "Run workflow" no painel do GitHub
   workflow_dispatch:
 
+# Remove os avisos visuais de pacotes depreciados de terceiros do console
+env:
+  ACTIONS_SUPRESS_MESSAGES: 'true'
+
 jobs:
   executar_esteira:
     runs-on: ubuntu-latest
 
     steps:
-    # 1. Copia os seus arquivos usando a versão atualizada e estável do checkout
+    # 1. Copia os seus arquivos usando a versão estável do checkout
     - name: Checkout do codigo
-      uses: actions/checkout@v4.2.2
+      uses: actions/checkout@v4
 
-    # 2. Prepara o Python usando a versão que suporta nativamente o Node 24
+    # 2. Prepara o Python na versão recomendada
     - name: Configurar Python
-      uses: actions/setup-python@v5.4.0
+      uses: actions/setup-python@v5
       with:
         python-version: '3.12'
 
