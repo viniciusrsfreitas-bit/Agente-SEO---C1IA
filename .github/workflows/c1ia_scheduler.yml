@@ -1,4 +1,4 @@
-﻿name: Automacao de Conteudo C1IA
+name: Automacao de Conteudo C1IA
 
 on:
   schedule:
@@ -7,16 +7,20 @@ on:
   # Permite o disparo manual direto pelo botão "Run workflow" no painel do GitHub
   workflow_dispatch:
 
+# Define globalmente que todas as ações devem rodar usando o Node.js 24
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
 jobs:
   executar_esteira:
     runs-on: ubuntu-latest
 
     steps:
-    # 1. Copia os seus arquivos para a máquina virtual do GitHub (Atualizado para v4)
+    # 1. Copia os seus arquivos para a máquina virtual do GitHub
     - name: Checkout do codigo
       uses: actions/checkout@v4
 
-    # 2. Prepara o Python na máquina virtual (Atualizado para v5)
+    # 2. Prepara o Python na máquina virtual
     - name: Configurar Python
       uses: actions/setup-python@v5
       with:
