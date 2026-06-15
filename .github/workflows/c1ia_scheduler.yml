@@ -7,22 +7,18 @@ on:
   # Permite o disparo manual direto pelo botão "Run workflow" no painel do GitHub
   workflow_dispatch:
 
-# Define globalmente que todas as ações devem rodar usando o Node.js 24
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
-
 jobs:
   executar_esteira:
     runs-on: ubuntu-latest
 
     steps:
-    # 1. Copia os seus arquivos para a máquina virtual do GitHub
+    # 1. Copia os seus arquivos usando a versão atualizada e estável do checkout
     - name: Checkout do codigo
-      uses: actions/checkout@v4
+      uses: actions/checkout@v4.2.2
 
-    # 2. Prepara o Python na máquina virtual
+    # 2. Prepara o Python usando a versão que suporta nativamente o Node 24
     - name: Configurar Python
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v5.4.0
       with:
         python-version: '3.12'
 
