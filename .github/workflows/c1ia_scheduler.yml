@@ -7,20 +7,20 @@ on:
   # Permite o disparo manual direto pelo botão "Run workflow" no painel do GitHub
   workflow_dispatch:
 
-# Remove os avisos visuais de pacotes depreciados de terceiros do console
+# Esta é a configuração exata exigida pelo GitHub para sumir com o aviso do Node 20
 env:
-  ACTIONS_SUPRESS_MESSAGES: 'true'
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   executar_esteira:
     runs-on: ubuntu-latest
 
     steps:
-    # 1. Copia os seus arquivos usando a versão estável do checkout
+    # 1. Copia os seus arquivos usando o checkout estável
     - name: Checkout do codigo
       uses: actions/checkout@v4
 
-    # 2. Prepara o Python na versão recomendada
+    # 2. Prepara o Python na máquina virtual
     - name: Configurar Python
       uses: actions/setup-python@v5
       with:
