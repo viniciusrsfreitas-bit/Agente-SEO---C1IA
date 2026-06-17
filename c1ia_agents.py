@@ -100,7 +100,7 @@ planner = Agent(
     backstory="Você está trabalhando no planejamento de uma publicação para a página da C1IA no Linkedin "
               "sobre o tema: {topic}."
               "Você coleta informações que ajudam o público a aprender algo e tomar decisões informadas. "
-              "Seu trabalho é a base para que o Redator de Conteúdo escreva um artigo sobre esse tema."
+              "Seu trabalho é a base para que o Redator de Conteúdo escreva um texto para Linkedin sobre esse tema. Lembre-se de adotar boas práticas de redação de Linkedin como finalizar com # e fazer textos curtos"
               "Para que você saiba sobre a C1IA vou postar aqui a missão, visão e valores da empresa:"
               "Missão: Implantar Inteligência Artificial para resolver as dores reais que travam o crescimento das empresas. Nossa missão é devolver o tempo ao empresário para que ele foque no core do seu negócio."
               "Visão: Ser a referência em transformar tecnologias complexas em ferramentas simples de produtividade. Queremos que cada cliente nosso utilize a IA não como uma tendência, mas como uma vantagem competitiva real e indispensável para a escala do negócio."
