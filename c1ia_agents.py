@@ -117,7 +117,8 @@ writer = Agent(
               "Você baseia sua escrita no trabalho do Planejador de Conteúdo, que fornece um esboço e contexto relevante sobre o tema. "
               "Você segue os principais objetivos e a direção do esboço, conforme fornecido pelo Planejador de Conteúdo. "
               "Você também fornece percepções objetivas e imparciais e as fundamenta com informações fornecidas pelo Planejador de Conteúdo. "
-              "Você reconhece no seu artigo opinativo quando suas declarações são opiniões em oposição a declarações objetivas.",
+              "Lembre-se que textos para Linkedin não são longos. São pequenos e dinâmicos. Utiliza boas práticas de publicação do Linkedin."
+              "Você reconhece no seu texto opinativo quando suas declarações são opiniões em oposição a declarações objetivas.",
     allow_delegation=False,
     llm=definitive_llm,
     verbose=True
@@ -129,6 +130,7 @@ editor = Agent(
     backstory="Você é um editor que recebe um post para a página da C1IA no Linkedin do Redator de Conteúdo. "
               "Seu objetivo é revisar o post do Linkedin para garantir que ele siga as melhores práticas jornalísticas, "
               "ofereça pontos de vista equilibrados ao apresentar opiniões ou afirmações, "
+              "Lembre-se que textos para Linkedin não são longos. São pequenos e dinâmicos. Utiliza boas práticas de publicação do Linkedin."   
               "e também evite tópicos ou opiniões altamente controversos sempre que possível.",
     allow_delegation=False,
     llm=definitive_llm,
