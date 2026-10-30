@@ -1,0 +1,315 @@
+{
+    "contexto": {
+        "cliente": "Pira Power",
+        "mes_fechamento": "jul/26",
+        "meses_anteriores": [
+            "abr/26",
+            "mai/26",
+            "jun/26"
+        ],
+        "observacao": "A análise utiliza o mês de fechamento informado. Meses posteriores podem conter dados incompletos."
+    },
+    "dre": {
+        "unidade": "BRL",
+        "dados_mensais": [
+            {
+                "Conta Classificada": "Custo Fixo",
+                "dez/25": -12690.19,
+                "jan/26": -18825.36,
+                "fev/26": -14293.17,
+                "mar/26": -13895.18,
+                "abr/26": -14236.59,
+                "mai/26": -21852.61,
+                "jun/26": -20699.62,
+                "jul/26": -21750.0,
+                "ago/26": 0.0,
+                "set/26": 0.0,
+                "out/26": 0.0
+            },
+            {
+                "Conta Classificada": "Custo das Mercadorias Vendidas",
+                "dez/25": -50235.17,
+                "jan/26": -35057.24,
+                "fev/26": -60826.52,
+                "mar/26": -49447.77,
+                "abr/26": -53198.91,
+                "mai/26": -64069.76,
+                "jun/26": -30963.59,
+                "jul/26": -25903.89,
+                "ago/26": -35971.7,
+                "set/26": -38924.36,
+                "out/26": 0.0
+            },
+            {
+                "Conta Classificada": "Receita de Baterias",
+                "dez/25": 20471.0,
+                "jan/26": 19261.0,
+                "fev/26": 28425.0,
+                "mar/26": 51792.0,
+                "abr/26": 49227.0,
+                "mai/26": 68894.6,
+                "jun/26": 13679.0,
+                "jul/26": 19990.0,
+                "ago/26": 31531.82,
+                "set/26": 36561.56,
+                "out/26": 0.0
+            },
+            {
+                "Conta Classificada": "Receita de Eletrobike",
+                "dez/25": 53405.0,
+                "jan/26": 33270.0,
+                "fev/26": 48820.0,
+                "mar/26": 26480.0,
+                "abr/26": 31152.0,
+                "mai/26": 32603.0,
+                "jun/26": 31770.0,
+                "jul/26": 4300.0,
+                "ago/26": 49260.0,
+                "set/26": 31882.0,
+                "out/26": 0.0
+            },
+            {
+                "Conta Classificada": "Receita de Nobreaks",
+                "dez/25": 20392.39,
+                "jan/26": 19800.0,
+                "fev/26": 23505.0,
+                "mar/26": 14684.0,
+                "abr/26": 40164.0,
+                "mai/26": 37257.2,
+                "jun/26": 5895.0,
+                "jul/26": 18264.0,
+                "ago/26": 7663.0,
+                "set/26": 18570.04,
+                "out/26": 0.0
+            },
+            {
+                "Conta Classificada": "Receita de Serviços",
+                "dez/25": 13317.0,
+                "jan/26": 6362.0,
+                "fev/26": 31669.0,
+                "mar/26": 33072.0,
+                "abr/26": 21470.0,
+                "mai/26": 25291.0,
+                "jun/26": 15957.0,
+                "jul/26": 7600.0,
+                "ago/26": 18784.5,
+                "set/26": 25212.2,
+                "out/26": 0.0
+            }
+        ]
+    },
+    "receitas": {
+        "unidade": "BRL",
+        "valores_mensais": [
+            {
+                "Conta Classificada": "Receita de Baterias",
+                "dez/25": 20471.0,
+                "jan/26": 19261.0,
+                "fev/26": 28425.0,
+                "mar/26": 51792.0,
+                "abr/26": 49227.0,
+                "mai/26": 68894.6,
+                "jun/26": 13679.0,
+                "jul/26": 19990.0,
+                "ago/26": 31531.82,
+                "set/26": 36561.56,
+                "out/26": 0.0
+            },
+            {
+                "Conta Classificada": "Receita de Eletrobike",
+                "dez/25": 53405.0,
+                "jan/26": 33270.0,
+                "fev/26": 48820.0,
+                "mar/26": 26480.0,
+                "abr/26": 31152.0,
+                "mai/26": 32603.0,
+                "jun/26": 31770.0,
+                "jul/26": 4300.0,
+                "ago/26": 49260.0,
+                "set/26": 31882.0,
+                "out/26": 0.0
+            },
+            {
+                "Conta Classificada": "Receita de Nobreaks",
+                "dez/25": 20392.39,
+                "jan/26": 19800.0,
+                "fev/26": 23505.0,
+                "mar/26": 14684.0,
+                "abr/26": 40164.0,
+                "mai/26": 37257.2,
+                "jun/26": 5895.0,
+                "jul/26": 18264.0,
+                "ago/26": 7663.0,
+                "set/26": 18570.04,
+                "out/26": 0.0
+            },
+            {
+                "Conta Classificada": "Receita de Serviços",
+                "dez/25": 13317.0,
+                "jan/26": 6362.0,
+                "fev/26": 31669.0,
+                "mar/26": 33072.0,
+                "abr/26": 21470.0,
+                "mai/26": 25291.0,
+                "jun/26": 15957.0,
+                "jul/26": 7600.0,
+                "ago/26": 18784.5,
+                "set/26": 25212.2,
+                "out/26": 0.0
+            }
+        ],
+        "participacao_percentual": [
+            {
+                "Conta Classificada": "Receita de Baterias",
+                "dez/25": 19.027676527454148,
+                "jan/26": 24.47612875351048,
+                "fev/26": 21.46595277112801,
+                "mar/26": 41.09562954264131,
+                "abr/26": 34.66372796856626,
+                "mai/26": 41.99717395995509,
+                "jun/26": 20.32510661060014,
+                "jul/26": 39.857239701718704,
+                "ago/26": 29.403226353915706,
+                "set/26": 32.5785692772963,
+                "out/26": null
+            },
+            {
+                "Conta Classificada": "Receita de Eletrobike",
+                "dez/25": 49.639639731751686,
+                "jan/26": 42.27822042621326,
+                "fev/26": 36.8678210830772,
+                "mar/26": 21.011203859459805,
+                "abr/26": 21.93601994183631,
+                "mai/26": 19.874327779193372,
+                "jun/26": 47.205836466025765,
+                "jul/26": 8.57359333253579,
+                "ago/26": 45.93464412120479,
+                "set/26": 28.40879726408722,
+                "out/26": null
+            },
+            {
+                "Conta Classificada": "Receita de Nobreaks",
+                "dez/25": 18.954608985476558,
+                "jan/26": 25.16106896420266,
+                "fev/26": 17.750473874595034,
+                "mar/26": 11.651379058621893,
+                "abr/26": 28.28191785259096,
+                "mai/26": 22.711462286751626,
+                "jun/26": 8.759156624715828,
+                "jul/26": 36.41583921521713,
+                "ago/26": 7.145699916784254,
+                "set/26": 16.547032856972283,
+                "out/26": null
+            },
+            {
+                "Conta Classificada": "Receita de Serviços",
+                "dez/25": 12.378074755317614,
+                "jan/26": 8.084581856073603,
+                "fev/26": 23.915752271199754,
+                "mar/26": 26.241787539276984,
+                "abr/26": 15.11833423700647,
+                "mai/26": 15.417035974099916,
+                "jun/26": 23.70990029865827,
+                "jul/26": 15.153327750528373,
+                "ago/26": 17.516429608095237,
+                "set/26": 22.465600601644184,
+                "out/26": null
+            }
+        ]
+    },
+    "custos_fixos": {
+        "unidade": "BRL",
+        "regra": "Comparar custos fixos em valores absolutos, não em percentual do faturamento.",
+        "analise_variacoes": [
+            {
+                "index": 1,
+                "Conta": "Custo Fixo",
+                "Classificação": "CF",
+                "Média Anterior": 18929.606666666663,
+                "Mês Atual": 21750.0,
+                "Diferença": 2820.393333333337,
+                "Variação %": 14.899376320902624
+            }
+        ]
+    },
+    "custos_variaveis": {
+        "unidade": "percentual_do_faturamento",
+        "regra": "Comparar custos variáveis pela participação no faturamento. A diferença é expressa em pontos percentuais.",
+        "percentuais_mensais": [
+            {
+                "Conta Classificada": "Custo das Mercadorias Vendidas",
+                "dez/25": -46.693301014199044,
+                "jan/26": -44.5493754209396,
+                "fev/26": -45.93488849787417,
+                "mar/26": -39.23554289522963,
+                "abr/26": -37.46059163597699,
+                "mai/26": -39.05601972132173,
+                "jun/26": -46.00762247217723,
+                "jul/26": -51.648701997846636,
+                "ago/26": -33.54338688458673,
+                "set/26": -34.68396750123412,
+                "out/26": null
+            }
+        ],
+        "analise_variacoes": [
+            {
+                "index": 0,
+                "Conta": "Custo das Mercadorias Vendidas",
+                "Classificação": "CV",
+                "Média Anterior": 40.84141127649199,
+                "Mês Atual": 51.648701997846636,
+                "Diferença": 10.807290721354647,
+                "Variação %": 26.461599596033654
+            }
+        ]
+    },
+    "capital_de_giro": {
+        "unidade": "BRL",
+        "saldos_mensais": [
+            {
+                "Conta": "A PAGAR",
+                "dez/25": 149478.82,
+                "jan/26": 137186.29,
+                "fev/26": 135512.19,
+                "mar/26": 115216.47,
+                "abr/26": 134929.16,
+                "mai/26": 140454.81,
+                "jun/26": 106432.69,
+                "jul/26": 93815.67,
+                "ago/26": 0.0,
+                "set/26": 0.0,
+                "out/26": 0.0
+            },
+            {
+                "Conta": "EF",
+                "dez/25": 265787.76,
+                "jan/26": 262304.94,
+                "fev/26": 275527.23,
+                "mar/26": 273420.88,
+                "abr/26": 285787.26,
+                "mai/26": 272806.27,
+                "jun/26": 293593.4,
+                "jul/26": 304602.83,
+                "ago/26": 297223.83,
+                "set/26": 321106.62,
+                "out/26": 0.0
+            }
+        ],
+        "analise_variacoes": [
+            {
+                "Conta": "EF",
+                "Média Anterior": 284062.31,
+                "Mês Atual": 304602.83,
+                "Diferença": 20540.52000000002,
+                "Variação %": 7.23099097518429
+            },
+            {
+                "Conta": "A PAGAR",
+                "Média Anterior": 127272.21999999999,
+                "Mês Atual": 93815.67,
+                "Diferença": -33456.54999999999,
+                "Variação %": -26.28739405975632
+            }
+        ]
+    }
+}
